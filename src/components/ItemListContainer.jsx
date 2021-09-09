@@ -1,16 +1,18 @@
 
-
+import ItemCount from "./ItemCount";
 
 
 const ItemList = ({greeting}) => {
    
-    console.log(greeting)
+    
     return (
+        <>
         <div>
-               
-           <h1 className="blanco">{greeting}</h1> 
-          
+             
+         <h1 className="blanco">{greeting}</h1> 
+          <ItemCount className="centrado" stock="5" initial="1"/>
         </div>
+        </>
     )
 }
 

@@ -9,16 +9,16 @@ const Menu = () => {
 
     return (
         <>
-            <Navbar bg="dark" expand="lg" variant="ligth">
+            <Navbar bg="dark" expand="lg" variant="dark">
                 <Container>
                     <Navbar.Brand href="#home">Menu-practico2</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Producto 1</Nav.Link>
-                            <Nav.Link href="#link">Producto 2</Nav.Link>
-                            <Nav.Link href="#link">Producto 3</Nav.Link>
+                            <Nav.Link href="#link">Buzos</Nav.Link>
+                            <Nav.Link href="#link">Camisetas</Nav.Link>
+                            <Nav.Link href="#link">Camperas</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

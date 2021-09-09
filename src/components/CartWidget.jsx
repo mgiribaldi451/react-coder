@@ -1,12 +1,12 @@
 
-import Carro from '../images/shoppingcart2.png';
+import { GiShoppingCart } from "react-icons/gi";
 
 const CartWidget = () => {
 
     return (
         <>
                
-            <img  src={Carro}  alt="carro"/>
+            <GiShoppingCart size={40} color='white' className="cart"/>
           
         </>
     )
