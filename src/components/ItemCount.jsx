@@ -31,7 +31,7 @@ const ItemCount = ({ stock, initial }) => {
     return (
         <>
 
-            <Card className="card" >
+            <Card className="cards" >
 
                 <Card.Body>
                     <Card.Title> Cantidad de productos </Card.Title>

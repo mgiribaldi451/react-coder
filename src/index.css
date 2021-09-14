@@ -18,8 +18,9 @@ code {
 }
 
 
-.card {
-  width      : 18rem;
+.cards {
+  width: 18rem;
+
   margin-left: 40%;
 
 
@@ -30,3 +31,15 @@ code {
   margin-right: 3%;
 }
 
+.items {
+  display        : flex !important;
+  flex-wrap      : wrap !important;
+  justify-content: space-evenly !important;
+  margin         : 2%;
+
+}
+
+.prueba {
+  width : 25%;
+  height: 30%;
+}

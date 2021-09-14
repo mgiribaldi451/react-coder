@@ -5,9 +5,9 @@ const CartWidget = () => {
 
     return (
         <>
-               
-            <GiShoppingCart size={40} color='white' className="cart"/>
-          
+
+            <GiShoppingCart size={40} color='white' className="cart" />
+
         </>
     )
 }
