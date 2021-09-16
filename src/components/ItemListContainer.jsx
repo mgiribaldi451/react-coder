@@ -1,6 +1,7 @@
 
 import ItemCount from "./ItemCount";
 import ItemLista from "./ItemList";
+import ItemDetailContainer from "./ItemDetailContainer";
 
 
 const ItemList = ({ greeting }) => {
@@ -15,6 +16,7 @@ const ItemList = ({ greeting }) => {
                 <ItemLista />
             </div>
             <ItemCount className="centrado" stock="5" initial="1" />
+            <ItemDetailContainer/>
 
         </>
 
