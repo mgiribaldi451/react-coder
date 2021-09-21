@@ -2,6 +2,8 @@ import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import CartWidget from './CartWidget'
+import React from 'react'
+import { Link } from 'react-router-dom'
 //import { GiShoppingCart } from "react-icons/gi";
 
 
@@ -11,18 +13,32 @@ const Menu = () => {
         <>
             <Navbar bg="dark" expand="lg" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Menu-practico2</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Buzos</Nav.Link>
-                            <Nav.Link href="#link">Camisetas</Nav.Link>
-                            <Nav.Link href="#link">Camperas</Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
+                        <Link exact to = '/'>
+                        <Navbar.Brand >Mi tienda</Navbar.Brand>
+                        </Link>
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="me-auto">
+                                <Link  to = '/'>
+                                    <span className="nav-link">Home </span>
+                                </Link>
+                                <Link  to ='/buzos'>
+                                    <span className="nav-link"> Buzos </span> 
+                                </Link>
+                                <Link  to = '/camisetas'>
+                                <span className="nav-link"> Camisetas </span>  
+                                </Link>
+                                <Link  to = '/camperas'>
+                                <span className="nav-link"> Camperas </span> 
+                                </Link>
+                            </Nav>
+                        </Navbar.Collapse>
+                        <Link exact to = '/cart'>
+                        <CartWidget />
+                        </Link>
+                    
                 </Container>
-                <CartWidget/>
+
             </Navbar>
         </>
     )

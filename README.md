@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+Se creo el Narbar con cart , muestra los productos segun el tipo en la navegacion.
+
+Se genero la ruta /categoria y /detalle donde /categoria filtra por el tipo de pproducto y /detalle por el id del producto

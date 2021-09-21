@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Card from 'react-bootstrap/Card'
 import { MdAddCircle, MdRemoveCircle } from "react-icons/md";
 
 const ItemCount = ({ stock, initial }) => {
@@ -30,20 +29,12 @@ const ItemCount = ({ stock, initial }) => {
     }
     return (
         <>
-
-            <Card className="cards" >
-
-                <Card.Body>
-                    <Card.Title> Cantidad de productos </Card.Title>
                     <MdRemoveCircle size={30} color='blue' onClick={restarItem}></MdRemoveCircle>
                     <span > {count} </span>
                     <MdAddCircle size={30} color='blue' onClick={addItem}> </MdAddCircle>
+                    <br/>
+                    <button className="btn btn-outline-primary btn-block" onClick={enviar}>Agregar</button>
 
-                    <br />
-                    <br />
-                    <button onClick={enviar}>Agregar</button>
-                </Card.Body>
-            </Card>
 
         </>
     )
