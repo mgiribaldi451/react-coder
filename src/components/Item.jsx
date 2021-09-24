@@ -1,6 +1,7 @@
 import Button from "@restart/ui/esm/Button";
 import Card from 'react-bootstrap/Card'
 import ItemCount from "./ItemCount";
+import { Link } from 'react-router-dom'
 
 
 const Item = ({ obj }) => {
@@ -15,9 +16,11 @@ const Item = ({ obj }) => {
 
                         <img src={obj.url} className="w-25" alt={obj.nombre} />< br/>
                         <span>Precio {obj.precio}</span><br/>
-                        <ItemCount stock="5" initial="1"/>
+                        {/*<ItemCount stock="5" initial="1"/>*/}
                         <Card.Footer>
+                        <Link to={`/detalle/${obj.id}`} >
                             <Button className="btn btn-outline-primary btn-block" variant="primary">Detalles</Button>
+                        </Link>
                         </Card.Footer>
                     </Card.Body>
                 </Card>
