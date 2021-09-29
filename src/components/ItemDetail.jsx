@@ -1,22 +1,11 @@
-import Button from "@restart/ui/esm/Button";
-import React, { useState } from "react";
 import Card from 'react-bootstrap/Card'
 import ItemCount from './ItemCount'
 
 
+
 const Item = ({ obj }) => {
     
-    const [carrito, setCarrito] = useState([])
-    
-    const addToCart=(item)=> {
-        setCarrito([...carrito, item])
-    }
-    
 
-    const onAdd=(cant)=>{
-        addToCart({item: obj, cantidad: cant})
-         
-    } 
 
 
     return (
@@ -32,7 +21,7 @@ const Item = ({ obj }) => {
 
                         <Card.Footer>
                             {/*<Button className="btn btn-outline-primary btn-block" variant="primary">Detalles</Button>*/}
-                            <ItemCount initial={1} stock={5} onAdd={onAdd} />  
+                            <ItemCount initial={1} stock={5} obj={obj} />  
                             
                         </Card.Footer>
                     </Card.Body>

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { MdAddCircle, MdRemoveCircle } from "react-icons/md";
 import { Link } from 'react-router-dom'
+import { useCartContext } from "./CartContext";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, obj }) => {
     const [count, setCount] = useState(initial)
     const [cambiarBoton, setCambiarBoton] = useState(true)
+    const {addToCart} = useCartContext()
     stock = parseInt(stock);
     const addItem = () => {
 
@@ -26,9 +28,13 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         }
     }
 
-    /*const enviar = () => {
-        alert("producto agregado")
-    }*/
+    const onAdd=(count)=>{
+ 
+        addToCart(obj, count)
+        
+         
+    }
+
 
 
     return (
@@ -39,17 +45,17 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             <br />
             {/*<button className="btn btn-outline-primary btn-block" onClick={enviar}>Agregar</button>*/}
             {cambiarBoton ?
-                <button onClick={()=>{
+                <button className="btn btn-outline-primary btn-block" variant="primary" onClick={()=>{
                     onAdd(count)
                     setCambiarBoton(false)
                 }}>Agregar Al carrito</button>
                 :
                 <div>
                     <Link to="/cart" >
-                        <button >Terminar Compra</button>
+                        <button className="btn btn-outline-primary btn-block" variant="primary">Terminar Compra</button>
                     </Link>
                     <Link to="/" >
-                        <button >Seguir Comprando</button>
+                        <button className="btn btn-outline-primary btn-block" variant="primary">Seguir Comprando</button>
                     </Link>
                 </div>
 

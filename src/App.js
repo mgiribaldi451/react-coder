@@ -5,41 +5,51 @@ import ItemList from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer';
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import CartContextProvider from './components/CartContext'
+import Cart from './components/Cart';
+
 
 
 function App() {
 
+
+
   return (
-    <>
-      <Router>
-        <Nav />
+    <CartContextProvider>
+   
 
-        <Switch>
+        <Router>
+          <Nav />
 
-          <Route exact path='/'>
-            <ItemList  />
-          </Route>
-          <Route path='/buzos/'>
-            <ItemList greeting='buzos' />
-          </Route>
-          
-          <Route path='/camisetas/'>
-            <ItemList greeting='camisetas' />
-          </Route>
-          <Route   path='/camperas'>
+          <Switch>
+
+            <Route exact path='/'>
+              <ItemList />
+            </Route>
+            <Route path='/buzos/'>
+              <ItemList greeting='buzos' />
+            </Route>
+
+            <Route path='/camisetas/'>
+              <ItemList greeting='camisetas' />
+            </Route>
+            <Route path='/camperas'>
               <ItemList greeting='camperas' />
-          </Route>
-          <Route   path='/categoria/:idCat' component={ItemList} />
-              
-          
-          <Route   path='/detalle/:id' component={ItemDetailContainer} />
-              
-          
-          <Route exact path='/cart'/> 
-        </Switch>
+            </Route>
+            <Route path='/categoria/:idCat' component={ItemList} />
 
-      </Router>
-    </>
+
+            <Route path='/detalle/:id' component={ItemDetailContainer} />
+
+
+            <Route exact path='/cart' component={Cart} />
+          </Switch>
+
+        </Router>
+      
+    </CartContextProvider>
+
+
   )
 }
 
