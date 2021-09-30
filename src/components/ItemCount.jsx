@@ -29,7 +29,7 @@ const ItemCount = ({ stock, initial, obj }) => {
     }
 
     const onAdd=(count)=>{
- 
+        
         addToCart(obj, count)
         
          

@@ -11,18 +11,25 @@ export default function CartContextProvider ({children}) {
 
     const addToCart = (item, quantity) => {
 
-        //console.log(quantity);
-
-        const index = cartList.findIndex(i => i.id === item.id)
+        console.log(`estos item: ${item.id} y estos es quiantity: ${quantity}`);
+        let buscar= item.id
+        if(cartList.length>0){
+        console.log(`estos es  id carlist: ${cartList[0].item.id}`);
+        }
+        let index = cartList.findIndex((i) => i.item.id === buscar)
+        console.log(`este es index: ${index}`);
     
           if (index > -1) {
             const oldQy = cartList[index].quantity
-    
-            setCartList([...cartList, { item, quantity: quantity + oldQy}])
+            quantity+=oldQy
+            cartList[index].quantity=quantity
+            let arr=cartList
+            setCartList(arr)
           }
           else {
             setCartList([...cartList, {item, quantity}])
           }
+          
       }
 
       const deleteFromCart = (item) => {
@@ -53,6 +60,8 @@ export default function CartContextProvider ({children}) {
 
 
 
+
+
     //console.log(cartList);
     return(
         <cartContext.Provider value={{
@@ -62,6 +71,7 @@ export default function CartContextProvider ({children}) {
             iconCart,
             precioTotal,
             borrarLista,
+            
             
         }}>
             {children}

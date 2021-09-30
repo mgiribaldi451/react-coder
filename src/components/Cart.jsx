@@ -25,6 +25,7 @@ const Cart = () => {
 
                             <img src={item.item.url} className="w-25" alt={item.item.nombre} />< br />
                             <span>Precio {item.item.precio}</span><br />
+                            <span>Cantidad de unidades {item.quantity}</span><br />
                             {/*<ItemCount stock="5" initial="1"/>*/}
                             <Card.Footer>
                             
@@ -37,7 +38,7 @@ const Cart = () => {
                 { vacio ? <>
                     <button className="btn btn-outline-primary btn-block" variant="primary" onClick={() => {
                                 alert("Comprado")
-                }} >Comprar ${precio}</button>
+                }} >Comprar ${precio} </button>
                 <button className="btn btn-outline-primary btn-block" variant="primary" onClick={() => {
                     borrarLista();
                     
