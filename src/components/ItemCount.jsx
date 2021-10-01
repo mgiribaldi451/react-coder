@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { MdAddCircle, MdRemoveCircle } from "react-icons/md";
 import { Link } from 'react-router-dom'
 import { useCartContext } from "./CartContext";
 
@@ -39,23 +38,23 @@ const ItemCount = ({ stock, initial, obj }) => {
 
     return (
         <>
-            <MdRemoveCircle size={30} color='blue' onClick={restarItem}></MdRemoveCircle>
+            <button className="btn btn-outline-info btn-block" onClick={restarItem}> - </button>
             <span > {count} </span>
-            <MdAddCircle size={30} color='blue' onClick={addItem}> </MdAddCircle>
+            <button className="btn btn-outline-info btn-block" onClick={addItem}> + </button>
             <br />
             {/*<button className="btn btn-outline-primary btn-block" onClick={enviar}>Agregar</button>*/}
             {cambiarBoton ?
-                <button className="btn btn-outline-primary btn-block" variant="primary" onClick={()=>{
+                <button className="btn btn-outline-info btn-block" variant="primary" onClick={()=>{
                     onAdd(count)
                     setCambiarBoton(false)
                 }}>Agregar Al carrito</button>
                 :
                 <div>
                     <Link to="/cart" >
-                        <button className="btn btn-outline-primary btn-block" variant="primary">Terminar Compra</button>
+                        <button className="btn btn-outline-info btn-block" variant="primary">Terminar Compra</button>
                     </Link>
                     <Link to="/" >
-                        <button className="btn btn-outline-primary btn-block" variant="primary">Seguir Comprando</button>
+                        <button className="btn btn-outline-info btn-block" variant="primary">Seguir Comprando</button>
                     </Link>
                 </div>
 

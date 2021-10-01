@@ -3,15 +3,21 @@ import { GiShoppingCart } from "react-icons/gi";
 
 const CartWidget = () => {
     const { iconCart } = useCartContext()
-    let cant=iconCart();
+    let cant = iconCart();
+    //Render condicional para mostrar el cart si no esta vacio
     return (
         <>
+            {cant>0 ? <>
+                <span className="texto">{cant}</span><GiShoppingCart size={40} color='white' className="cart" >
 
-            <span className="texto">{cant}</span><GiShoppingCart size={40} color='white' className="cart" >
-
-            <span className="texto">{cant}</span>
-        </GiShoppingCart>
-
+                    <span className="texto">{cant}</span>
+                </GiShoppingCart>
+            </>
+                :
+                <>
+                   
+                </>
+            }
         </>
     )
 }

@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./images/3D_Black_Square-HD_Widescreen_Wallpaper_1366x768.jpeg");
+  background-size:100%;
   background-color       : #2c2e33 !important;
 }
 
@@ -29,7 +31,10 @@ code {
 
 }
 
-
+.bg-card{
+  /*background-color: rgb(199, 18, 18);*/
+  opacity: 0.7;
+}
 .cart {
   margin-right: 3%;
 }
@@ -44,6 +49,6 @@ code {
 
 .prueba {
   width : 30%;
-  height: 50%;
+  height: 30%;
 }
 

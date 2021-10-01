@@ -11,7 +11,7 @@ const Item = ({ obj }) => {
     return (
         
             <div  className="prueba">
-                <Card className='Card w-30'>
+                <Card className='Card w-30 bg-secondary bg-card'>
                     <Card.Body>
                         <Card.Title> Soy ItemDetail </Card.Title>
                         <span>Producto: {obj.nombre}</span>< br/>

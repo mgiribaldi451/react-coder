@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 
 const Item = ({ obj }) => {
 
-
+//Render Item
     return (
         
             <div  className="prueba">
-                <Card className='Card w-30'>
+                <Card className='Card w-30 bg-secondary bg-card'>
                     <Card.Body>
                         <Card.Title> {obj.nombre} </Card.Title>
 
@@ -18,7 +18,7 @@ const Item = ({ obj }) => {
                         {/*<ItemCount stock="5" initial="1"/>*/}
                         <Card.Footer>
                         <Link to={`/detalle/${obj.id}`} >
-                            <Button className="btn btn-outline-primary btn-block" variant="primary">Detalles</Button>
+                            <Button className="btn btn-outline-info btn-block" variant="primary">Detalles</Button>
                         </Link>
                         </Card.Footer>
                     </Card.Body>
