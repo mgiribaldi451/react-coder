@@ -2,48 +2,39 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemLista from "./ItemList";
 import { getProductos } from "../utils/Mock"
+import { getFirestore } from "../services/getFirbase";
 
 
 
-const ItemList = ({ greeting }) => {
+const ItemList = () => {
     const [producto, setProducto] = useState([]);
     const { idCat } = useParams()
     const [loading, setLoading] = useState(true)
     
     
+
     useEffect(()=>{
+        const dbQuery=getFirestore();
 
-        if(greeting){
-        getProductos
-        .then(resp=>{
-            setProducto(resp.filter(e=>e.tipo===greeting))
+        if(idCat){
+            dbQuery.collection('productos').where('tipo','==',idCat).get()
+            .then(resp=>{
+                setProducto(resp.docs.map(productos=>({id: productos.id, ...productos.data()})))
+            })
+            .catch(error => console.log(error))
+            .finally(()=> setLoading(false))
+
         }
-
-        )
+        else{
+        dbQuery.collection('productos').get()
+        .then(resp=>{
+            setProducto(resp.docs.map(productos=>({id: productos.id, ...productos.data()})))
+        })
         .catch(error => console.log(error))
         .finally(()=> setLoading(false))  
     }
-    else if (idCat){
-        getProductos
-        .then(resp=>{
-            setProducto(resp.filter(e=>e.tipo===idCat))
-        }
 
-        )
-        .catch(error => console.log(error))
-        .finally(()=> setLoading(false))  
-    }
-    else{
-        getProductos
-        .then(resp=>{
-            setProducto(resp)
-        }
-
-        )
-        .catch(error => console.log(error))
-        .finally(()=> setLoading(false))  
-    }
-    }, [greeting , idCat])
+    },[idCat])
 
     return (
         <>

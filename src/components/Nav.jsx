@@ -22,13 +22,13 @@ const Menu = () => {
                                 <Link  to = '/'>
                                     <span className="nav-link">Home </span>
                                 </Link>
-                                <Link  to ='/buzos'>
+                                <Link  to ='/categoria/buzos'>
                                     <span className="nav-link"> Buzos </span> 
                                 </Link>
-                                <Link  to = '/camisetas'>
+                                <Link  to = '/categoria/camisetas'>
                                 <span className="nav-link"> Camisetas </span>  
                                 </Link>
-                                <Link  to = '/camperas'>
+                                <Link  to = '/categoria/camperas'>
                                 <span className="nav-link"> Camperas </span> 
                                 </Link>
                             </Nav>

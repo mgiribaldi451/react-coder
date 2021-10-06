@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom'
 const Cart = () => {
     const { cartList, deleteFromCart, borrarLista, precioTotal } = useCartContext()
     let precio = precioTotal();
-    console.log(precio);
 
 
 
@@ -23,7 +22,7 @@ const Cart = () => {
                         <Card.Body>
                             <Card.Title> {item.item.nombre} </Card.Title>
 
-                            <img src={item.item.url} className="w-25" alt={item.item.nombre} />< br />
+                            <img src={item.item.imageID} className="w-25" alt={item.item.nombre} />< br />
                             <span>Precio {item.item.precio}</span><br />
                             <span>Cantidad de unidades {item.quantity}</span><br />
                             <Card.Footer>

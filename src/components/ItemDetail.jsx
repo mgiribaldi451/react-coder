@@ -7,7 +7,6 @@ const Item = ({ obj }) => {
     
 
 
-
     return (
         
             <div  className="prueba">
@@ -15,7 +14,7 @@ const Item = ({ obj }) => {
                     <Card.Body>
                         <Card.Title> Soy ItemDetail </Card.Title>
                         <span>Producto: {obj.nombre}</span>< br/>
-                        <img src={obj.url} className="w-25" alt={obj.nombre} />< br/>
+                        <img src={obj.imageID} className="w-25" alt={obj.nombre} />< br/>
                         <span>Precio {obj.precio}</span>< br/>
                         <span>tipo {obj.tipo}</span>
 

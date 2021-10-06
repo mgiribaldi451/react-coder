@@ -10,7 +10,8 @@ export default function CartContextProvider ({children}) {
 
 
     const addToCart = (item, quantity) => {
-
+        console.log('item');
+        console.log(item);
         let buscar= item.id
         let index = cartList.findIndex((i) => i.item.id === buscar)
  
@@ -55,9 +56,6 @@ export default function CartContextProvider ({children}) {
     }
 
 
-
-
-    //console.log(cartList);
     return(
         <cartContext.Provider value={{
             cartList,

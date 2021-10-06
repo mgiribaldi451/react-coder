@@ -26,23 +26,18 @@ function App() {
             <Route exact path='/'>
               <ItemList />
             </Route>
-            <Route path='/buzos/'>
-              <ItemList greeting='buzos' />
-            </Route>
-
-            <Route path='/camisetas/'>
-              <ItemList greeting='camisetas' />
-            </Route>
-            <Route path='/camperas'>
-              <ItemList greeting='camperas' />
-            </Route>
-            <Route path='/categoria/:idCat' component={ItemList} />
+            <Route exact path='/categoria/:idCat' component={ItemList}/>
+              {/*<ItemList greeting='buzos' />*/}
 
 
-            <Route path='/detalle/:id' component={ItemDetailContainer} />
 
 
-            <Route exact path='/cart' component={Cart} />
+
+            <Route exact path='/detalle/:id' component={ItemDetailContainer} />
+
+
+            <Route exact path='/cart' component={Cart}/>
+      
           </Switch>
 
         </Router>

@@ -13,7 +13,7 @@ const Item = ({ obj }) => {
                     <Card.Body>
                         <Card.Title> {obj.nombre} </Card.Title>
 
-                        <img src={obj.url} className="w-25" alt={obj.nombre} />< br/>
+                        <img src={obj.imageID} className="w-25" alt={obj.nombre} />< br/>
                         <span>Precio {obj.precio}</span><br/>
                         {/*<ItemCount stock="5" initial="1"/>*/}
                         <Card.Footer>
