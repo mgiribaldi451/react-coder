@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemLista from "./ItemList";
-import { getProductos } from "../utils/Mock"
 import { getFirestore } from "../services/getFirbase";
 
 

@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom'
 import { useCartContext } from "./CartContext";
 
-const ItemCount = ({ stock, initial, obj }) => {
+const ItemCount = ({  initial, obj }) => {
     const [count, setCount] = useState(initial)
     const [cambiarBoton, setCambiarBoton] = useState(true)
     const {addToCart} = useCartContext()
-    stock = parseInt(stock);
+    //stock = parseInt(stock);
     const addItem = () => {
 
-        if (count >= stock) {
+        if (count >= obj.stock) {
             setCount(5);
         }
         else {

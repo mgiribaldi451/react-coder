@@ -14,7 +14,8 @@ const Item = ({ obj }) => {
                         <Card.Title> {obj.nombre} </Card.Title>
 
                         <img src={obj.imageID} className="w-25" alt={obj.nombre} />< br/>
-                        <span>Precio {obj.precio}</span><br/>
+                        <span>Precio ${obj.precio}</span><br/>
+                        <span>Stock: {obj.stock}</span><br/>
                         {/*<ItemCount stock="5" initial="1"/>*/}
                         <Card.Footer>
                         <Link to={`/detalle/${obj.id}`} >

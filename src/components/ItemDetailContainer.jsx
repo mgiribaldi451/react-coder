@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
-import { getProductos } from "../utils/Mock";
 import { useParams } from "react-router-dom";
 import { getFirestore } from "../services/getFirbase";
 

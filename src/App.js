@@ -17,7 +17,6 @@ function App() {
   return (
     <CartContextProvider>
    
-
         <Router>
           <Nav />
 
@@ -29,12 +28,7 @@ function App() {
             <Route exact path='/categoria/:idCat' component={ItemList}/>
               {/*<ItemList greeting='buzos' />*/}
 
-
-
-
-
             <Route exact path='/detalle/:id' component={ItemDetailContainer} />
-
 
             <Route exact path='/cart' component={Cart}/>
       

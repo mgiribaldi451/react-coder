@@ -15,12 +15,12 @@ const Item = ({ obj }) => {
                         <Card.Title> Soy ItemDetail </Card.Title>
                         <span>Producto: {obj.nombre}</span>< br/>
                         <img src={obj.imageID} className="w-25" alt={obj.nombre} />< br/>
-                        <span>Precio {obj.precio}</span>< br/>
-                        <span>tipo {obj.tipo}</span>
+                        <span>Precio: ${obj.precio}</span>< br/>
+                        <span>Stock: {obj.stock}</span>
 
                         <Card.Footer>
                             {/*<Button className="btn btn-outline-primary btn-block" variant="primary">Detalles</Button>*/}
-                            <ItemCount initial={1} stock={5} obj={obj} />  
+                            <ItemCount initial={1} obj={obj} />  
                             
                         </Card.Footer>
                     </Card.Body>
