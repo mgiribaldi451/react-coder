@@ -6,7 +6,7 @@ const Item = ({ obj }) => {
 
     //Render Item
     return (
-        <div className="card-container">
+        <div className="card-container ">
             <div className="card-img">
                 <img src={obj.imageID} width={250} height={250} alt={obj.nombre} />
             </div>
