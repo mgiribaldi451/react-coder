@@ -1,32 +1,23 @@
-import Card from 'react-bootstrap/Card'
 import ItemCount from './ItemCount'
 
-
-
 const Item = ({ obj }) => {
-    
-
-
     return (
-        
-            <div  className="prueba">
-                <Card className='Card w-30 bg-secondary bg-card'>
-                    <Card.Body>
-                        <Card.Title> Soy ItemDetail </Card.Title>
-                        <span>Producto: {obj.nombre}</span>< br/>
-                        <img src={obj.imageID} className="w-25" alt={obj.nombre} />< br/>
-                        <span>Precio: ${obj.precio}</span>< br/>
-                        <span>Stock: {obj.stock}</span>
-
-                        <Card.Footer>
-                            {/*<Button className="btn btn-outline-primary btn-block" variant="primary">Detalles</Button>*/}
-                            <ItemCount initial={1} obj={obj} />  
-                            
-                        </Card.Footer>
-                    </Card.Body>
-                </Card>
+        <div className='item-detail-container'>
+            <div className="card-container">
+                <div className="card-img">
+                    <img src={obj.imageID} width={250} height={250} alt={obj.nombre} />
+                </div>
+                <div className="card-text">
+                    <div className="card-title"><span> Producto {obj.nombre} </span></div>
+                    <div className="price-title"><span>Precio ${obj.precio}</span></div>
+                    <div className="stock-title"><span>Stock: {obj.stock}</span></div>
+                </div>
+                <div className="card-btn">
+                    <ItemCount initial={1} obj={obj} />
+                </div>
             </div>
-        
+        </div>
+
     )
 }
 

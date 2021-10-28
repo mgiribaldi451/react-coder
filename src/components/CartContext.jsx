@@ -38,9 +38,6 @@ export default function CartContextProvider ({children}) {
 
         const iconCart = () => {
 
-            //return cartList.reduce( (acum, valor)=> acum + valor.quantity, 0) 
-            
-
             return cartList.length
         }
 

@@ -3,15 +3,10 @@ import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import { getFirestore } from "../services/getFirbase";
 
-
-
-
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState([]);
-
     const {id}=useParams()
   
-
    useEffect(()=>{
         const dbQuery=getFirestore();
         dbQuery.collection('productos').doc(id).get()
@@ -19,17 +14,13 @@ const ItemDetailContainer = () => {
             setProducto({id: id , ...resp.data()})
         })
         .catch(error => console.log(error))
-        
-
-    
+   
     },[id])
-
    
     return (
         <>
            <ItemDetail obj={producto}/>
         </>
-
     )
 }
 

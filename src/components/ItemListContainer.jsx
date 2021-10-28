@@ -39,7 +39,7 @@ const ItemList = () => {
         <>
 
             <div className=" container items">
-                { loading ? <h2>Cargando...</h2> :   <ItemLista producto={producto} />  }  
+                { loading ? <div className="spinner"><h2>Cargando...</h2></div> :   <ItemLista producto={producto} />  }  
             </div>
         </>
 

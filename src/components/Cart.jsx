@@ -1,12 +1,13 @@
 import React from 'react'
 import { useState } from "react";
 import { useCartContext } from "./CartContext";
-import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 import firebase from 'firebase'
 import 'firebase/firestore'
 import { getFirestore } from '../services/getFirbase'
 import validator from 'validator'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -62,10 +63,7 @@ const Cart = () => {
 
         const batch = db.batch();
 
-
-
         //update del stock postcompra
-
         itemsToUpdate.get()
             .then(collection => {
                 collection.docs.forEach(docSnapshot => {
@@ -86,19 +84,19 @@ const Cart = () => {
             ...formData,
             [e.target.name]: e.target.value
         })
-        if (e.target.name==='email'){
-            if(!validator.isEmail(e.target.value)){
-                e.target.style.backgroundColor='rgba(148, 62, 47, 0.616)'
-            }else{
-                e.target.style.backgroundColor='white'
+        if (e.target.name === 'email') {
+            if (!validator.isEmail(e.target.value)) {
+                e.target.style.backgroundColor = 'rgba(148, 62, 47, 0.616)'
+            } else {
+                e.target.style.backgroundColor = 'white'
 
             }
         }
-        if (e.target.name==='email2'){
-            if(e.target.value !== formData.email){
-                e.target.style.backgroundColor='rgba(148, 62, 47, 0.616)'
-            }else{
-                e.target.style.backgroundColor='white'
+        if (e.target.name === 'email2') {
+            if (e.target.value !== formData.email) {
+                e.target.style.backgroundColor = 'rgba(148, 62, 47, 0.616)'
+            } else {
+                e.target.style.backgroundColor = 'white'
 
             }
         }
@@ -106,86 +104,98 @@ const Cart = () => {
 
 
     return (
-        <div className="container items">
+        <div className="container">
 
-            {cartList.map(item => <div className="  items" key={item.item.id}>
-                {/*Render Cart Content*/}
+            {cartList.map(item => <div className="content-items" key={item.item.id}>
 
-                <Card className='Card w-30 bg-secondary bg-card'>
-                    <Card.Body>
-                        <Card.Title> {item.item.nombre} </Card.Title>
-
-                        <img src={item.item.imageID} className="w-25" alt={item.item.nombre} />< br />
-                        <span>Precio {item.item.precio}</span><br />
-                        <span>Cantidad de unidades {item.quantity}</span><br />
-                        <Card.Footer>
-
-                            <button className="btn btn-outline-info btn-block" variant="primary" onClick={() => deleteFromCart(item)} >Quitar del carrito</button>
-
-                        </Card.Footer>
-                    </Card.Body>
-                </Card>
+                <div className='list-items'>
+                    <div className="list-width"><img src={item.item.imageID} width={100} height={100} alt={item.item.nombre} /></div>
+                    <div className="card-title list-width"><span>Producto: {item.item.nombre} </span></div>
+                    <div className="stock-title list-width"><span>Cantidad de unidades: {item.quantity}</span></div>
+                    <div className="price-title list-width"><span>Precio ${item.item.precio}</span></div>
+                    <div className="list-width">
+                        <FontAwesomeIcon className='icon-hover' icon={faTrash} size='2x' onClick={() => deleteFromCart(item)} />
+                    </div>
+                </div>
 
 
             </div>)}
             {/*render condicional para el render de cart*/}
-            {cartList.length > 0 ? <div>
-                <button className="btn btn-outline-info btn-block" variant="primary" onClick={() => {
-
-                    setForm(true)
-                }} >Comprar ${precio} </button>
-                <button className="btn btn-outline-info btn-block" variant="primary" onClick={() => {
-                    borrarLista();
-                    setForm(false)
-
-
-                }} >Vaciar Carrito</button>
-                <Link to="/">
-                    <button className="btn btn-outline-info btn-block" variant="primary">Seguir comprando </button>
-                </Link>
-            </div>
-                :
-                <>
-                    <span className="texto"> El Carro esta vacio</span><br />
+            {cartList.length > 0 ? <div className='btn-footer'>
+                <div className='btn-buy btn-width-footer'>
+                    <button className="btn btn-outline-info btn-block" variant="primary" onClick={() => {
+                        setForm(true)
+                    }} >Comprar ${precio} </button>
+                </div>
+                <div className='btn-clean btn-width-footer'>
+                    <button className="btn btn-outline-info btn-block" variant="primary" onClick={() => {
+                        borrarLista();
+                        setForm(false)
+                    }} >Vaciar Carrito</button>
+                </div>
+                <div className='btn-back btn-width-footer'>
                     <Link to="/">
                         <button className="btn btn-outline-info btn-block" variant="primary">Seguir comprando </button>
                     </Link>
+                </div>
+            </div>
+                :
+                <>
+                    <div className='btn-footer-clean'>
+                        <div className='text-clean'><span className="texto"> El Carro esta vacio</span></div>
+                        <div className='btn-back btn-width-footer-clean'>
+                            <Link to="/">
+                                <button className="btn btn-outline-info btn-block" variant="primary">Seguir comprando </button>
+                            </Link>
+                        </div>
+                    </div>
                 </>}
-            {formulario ? <div>
+            {formulario ? <div className='item-detail-container'>
                 <form
                     onSubmit={handleOnSubmit}
                     onChange={handleOnChange}
                 >
-                    <input
-                        type='text'
-                        placeholder='ingrese el nombre'
-                        name='nombre'
-                        value={formData.nombre}
-                    /><br/>
-                    <input
-                        type='number'
-                        placeholder='ingrese el nro de tel'
-                        name='telefono'
-                        value={formData.telefono}
-                    /><br/>
-                    <input
-                        type='text'
-                        placeholder='ingrese el email'
-                        name='email'
-                        value={formData.email}
-                    /><br/>
-                    <input
-                        type='text'
-                        placeholder='Confirme el mail'
-                        name='email2'
-                    /><br/>
-                    <button className="btn btn-outline-info btn-block">Terminar Compra</button><br/>
-                    <button className="btn btn-outline-info btn-block" onClick={() => {
-                        setForm(false)
-                    }}>Cancelar Compra</button>
-                </form> </div>: <></> }
+                    <div className='form-style'>
+
+                        <input
+                            type='text'
+                            placeholder='ingrese el nombre'
+                            name='nombre'
+                            value={formData.nombre}
+                            required
+                        /><br />
+                        <input
+                            type='number'
+                            placeholder='ingrese el nro de tel'
+                            name='telefono'
+                            value={formData.telefono}
+                            required
+                        /><br />
+                        <input
+                            type='text'
+                            placeholder='ingrese el email'
+                            name='email'
+                            value={formData.email}
+                            required
+                        /><br />
+                        <input
+                            type='text'
+                            placeholder='Confirme el mail'
+                            name='email2'
+                            required
+                        /><br />
+
+                    </div>
+                    <div className='btn-footer'>
+                        <button type='submit' className="btn btn-outline-info btn-block btn-margin">Terminar Compra</button><br />
+                        <button className="btn btn-outline-info btn-block btn-margin" onClick={() => {
+                            setForm(false)
+                        }}>Cancelar Compra</button>
+                    </div>
+                </form>
+            </div> : <></>}
         </div>
-        
+
     )
 }
 

@@ -25,12 +25,12 @@ function App() {
             <Route exact path='/'>
               <ItemList />
             </Route>
-            <Route exact path='/categoria/:idCat' component={ItemList}/>
+            <Route  exact path='/categoria/:idCat' component={ItemList}/>
               {/*<ItemList greeting='buzos' />*/}
 
-            <Route exact path='/detalle/:id' component={ItemDetailContainer} />
+            <Route   exact path='/detalle/:id' component={ItemDetailContainer} />
 
-            <Route exact path='/cart' component={Cart}/>
+            <Route  exact path='/cart' component={Cart}/>
       
           </Switch>
 

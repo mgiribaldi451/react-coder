@@ -7,16 +7,11 @@ const CartWidget = () => {
     //Render condicional para mostrar el cart si no esta vacio
     return (
         <>
-            {cant>0 ? <>
-                <span className="texto">{cant}</span><GiShoppingCart size={40} color='white' className="cart" >
-
-                    <span className="texto">{cant}</span>
-                </GiShoppingCart>
-            </>
-                :
-                <>
-                   
-                </>
+            {cant > 0 &&
+                <div>
+                    <div className="btn-finish btn-cart"><span className="texto">{cant}</span></div>
+                    <div className="btn-next"><GiShoppingCart size={40} color='white' className="cart" /></div>
+                </div>
             }
         </>
     )
